@@ -1,37 +1,75 @@
-// 페이지 로드 후 바로 관찰 시작
 window.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('.section');
 
-  const onEnter = (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
+  /* ── 타이핑 효과 ── */
+  const titleEl = document.getElementById('hero-title');
+  const text = '음악과 아이들 사이, 치유를 배우는 사람';
+  let i = 0;
 
-      // 섹션 전체 등장
-      el.classList.add('visible');
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor';
+  titleEl.appendChild(cursor);
 
-      // 타임라인 아이템 — 왼쪽에서 순서대로
-      el.querySelectorAll('.timeline-item').forEach((item, i) => {
-        item.style.transitionDelay = `${0.08 + i * 0.1}s`;
-        item.classList.add('child-visible');
-      });
-
-      // 뮤직 카드 — 아래에서 순서대로
-      el.querySelectorAll('.music-card').forEach((card, i) => {
-        card.style.transitionDelay = `${0.1 + i * 0.13}s`;
-        card.classList.add('child-visible');
-      });
-
-      // 자격증 아이템 — 팝인 순서대로
-      el.querySelectorAll('.cert-item').forEach((item, i) => {
-        item.style.transitionDelay = `${0.05 + i * 0.07}s`;
-        item.classList.add('child-visible');
-      });
-
-      observer.unobserve(el);
-    });
+  const type = () => {
+    if (i < text.length) {
+      titleEl.insertBefore(document.createTextNode(text[i]), cursor);
+      i++;
+      setTimeout(type, 55);
+    }
   };
+  setTimeout(type, 800);
 
-  const observer = new IntersectionObserver(onEnter, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-  sections.forEach((el) => observer.observe(el));
+  /* ── 네비게이션 스크롤 효과 ── */
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── 활성 섹션 네비 링크 표시 ── */
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section.section[id]');
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((a) => a.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    },
+    { rootMargin: '-45% 0px -50% 0px' }
+  );
+  sections.forEach((s) => sectionObserver.observe(s));
+
+  /* ── 섹션 & 자식 요소 스크롤 등장 ── */
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add('visible');
+
+        el.querySelectorAll('.timeline-item').forEach((item, i) => {
+          item.style.transitionDelay = `${0.08 + i * 0.1}s`;
+          item.classList.add('child-visible');
+        });
+        el.querySelectorAll('.music-card').forEach((card, i) => {
+          card.style.transitionDelay = `${0.1 + i * 0.13}s`;
+          card.classList.add('child-visible');
+        });
+        el.querySelectorAll('.cert-item').forEach((item, i) => {
+          item.style.transitionDelay = `${0.05 + i * 0.07}s`;
+          item.classList.add('child-visible');
+        });
+
+        revealObserver.unobserve(el);
+      });
+    },
+    { threshold: 0.06, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.section').forEach((el) => revealObserver.observe(el));
+
 });
