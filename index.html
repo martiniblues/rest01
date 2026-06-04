@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이름 — Resume</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Hero / Profile -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="profile-photo">
+        <img src="assets/profile.jpg" alt="프로필 사진" onerror="this.style.display='none'" />
+        <div class="photo-placeholder">사진</div>
+      </div>
+      <div class="hero-info">
+        <p class="hero-label">안녕하세요,</p>
+        <h1 class="hero-name">홍길동</h1>
+        <p class="hero-title">Frontend Developer / UX Designer</p>
+        <p class="hero-bio">
+          사용자 중심의 제품을 만드는 것에 열정을 가지고 있습니다. 간결하고 직관적인 경험을 설계하는 것을 좋아합니다.
+        </p>
+        <div class="hero-links">
+          <a href="mailto:example@email.com" class="link-chip">✉ 이메일</a>
+          <a href="https://github.com/" target="_blank" class="link-chip">⌥ GitHub</a>
+          <a href="https://linkedin.com/" target="_blank" class="link-chip">in LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <h2 class="section-title">기술 스택</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3 class="skill-group-title">Frontend</h3>
+          <div class="skill-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Backend</h3>
+          <div class="skill-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Python</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Tools</h3>
+          <div class="skill-tags">
+            <span class="tag">Git</span>
+            <span class="tag">Figma</span>
+            <span class="tag">VS Code</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <h2 class="section-title">경력</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-period">2023.03 — 현재</span>
+            <span class="timeline-badge">재직중</span>
+          </div>
+          <div class="timeline-content">
+            <h3 class="timeline-company">회사명</h3>
+            <p class="timeline-role">직책 / 직함</p>
+            <ul class="timeline-list">
+              <li>주요 업무 및 성과를 작성해주세요.</li>
+              <li>팀 규모, 프로젝트 규모를 함께 적으면 좋아요.</li>
+              <li>수치로 표현할 수 있다면 더욱 좋습니다. (예: 성능 30% 향상)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-period">2021.01 — 2023.02</span>
+          </div>
+          <div class="timeline-content">
+            <h3 class="timeline-company">이전 회사명</h3>
+            <p class="timeline-role">직책 / 직함</p>
+            <ul class="timeline-list">
+              <li>주요 업무 및 성과를 작성해주세요.</li>
+              <li>사용한 기술 스택도 함께 적어주세요.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education">
+      <h2 class="section-title">학력</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-period">2016 — 2020</span>
+          </div>
+          <div class="timeline-content">
+            <h3 class="timeline-company">OO대학교</h3>
+            <p class="timeline-role">컴퓨터공학과 학사</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <h2 class="section-title">프로젝트</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-thumb">
+            <img src="assets/project1.jpg" alt="프로젝트 1" onerror="this.parentElement.classList.add('no-img')" />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">프로젝트 이름</h3>
+            <p class="project-desc">프로젝트 설명을 2~3줄로 적어주세요. 어떤 문제를 해결했는지 중심으로 작성하면 좋습니다.</p>
+            <div class="project-tags">
+              <span class="tag tag-sm">React</span>
+              <span class="tag tag-sm">Node.js</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-outline btn-sm">GitHub</a>
+              <a href="#" class="btn btn-primary btn-sm">데모</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb">
+            <img src="assets/project2.jpg" alt="프로젝트 2" onerror="this.parentElement.classList.add('no-img')" />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">프로젝트 이름 2</h3>
+            <p class="project-desc">프로젝트 설명을 2~3줄로 적어주세요.</p>
+            <div class="project-tags">
+              <span class="tag tag-sm">Python</span>
+              <span class="tag tag-sm">MySQL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section-contact" id="contact">
+      <h2 class="section-title">연락처</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="contact-label">이메일</span>
+          <a href="mailto:example@email.com" class="contact-value">example@email.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">전화</span>
+          <span class="contact-value">010-0000-0000</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">GitHub</span>
+          <a href="https://github.com/" target="_blank" class="contact-value">github.com/username</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">블로그</span>
+          <a href="#" target="_blank" class="contact-value">blog.example.com</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 홍길동. Built with ❤</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
